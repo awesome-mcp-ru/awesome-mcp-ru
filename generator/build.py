@@ -99,7 +99,7 @@ def render_readme(entries: list[dict]) -> str:
     )
 
     def entry_url(entry: dict) -> str:
-        return f"https://mcp.neuralgate.ru/entry/{entry['id']}/"
+        return f"https://mcp-ru.neuralgate.ru/entry/{entry['id']}/"
 
     def tier_badge(entry: dict) -> str:
         return "🥇 Tier 1" if entry.get("tier") == 1 else "🥈 Tier 2"
