@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://awesome-mcp-ru.org/schema.json",
+  "title": "awesome-mcp-ru entry schema",
+  "description": "Schema for entries/*.yaml — each YAML file describes one MCP server in the catalog.",
+  "type": "object",
+  "required": [
+    "id", "name", "description", "category",
+    "endpoint", "maintainer",
+    "tools", "tools_count", "tools_lang",
+    "hosting", "license", "pricing"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,63}$",
+      "description": "ASCII kebab-case slug. Must match filename without .yaml extension."
+    },
+    "name": {
+      "type": "object",
+      "required": ["ru"],
+      "properties": {
+        "ru": {"type": "string", "minLength": 1},
+        "en": {"type": "string", "minLength": 1}
+      }
+    },
+    "description": {
+      "type": "object",
+      "required": ["ru"],
+      "properties": {
+        "ru": {"type": "string", "minLength": 1},
+        "en": {"type": "string", "minLength": 1}
+      }
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "business-intel", "ecommerce", "finance", "government",
+        "crm-saas", "communication", "cloud", "ai-llm",
+        "logistics", "maps-geo", "education", "devtools", "other"
+      ]
+    },
+    "endpoint": {
+      "type": "object",
+      "required": ["url", "transport", "auth"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "transport": {
+          "type": "string",
+          "enum": ["stdio", "sse", "streamable-http", "websocket"]
+        },
+        "auth": {
+          "type": "string",
+          "enum": ["open", "api-key", "oauth", "bearer"]
+        }
+      }
+    },
+    "maintainer": {
+      "type": "object",
+      "required": ["name", "contact"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "url": {"type": "string", "format": "uri"},
+        "contact": {"type": "string", "minLength": 1}
+      }
+    },
+    "verification": {
+      "type": "object",
+      "properties": {
+        "dns_txt": {"type": "boolean"},
+        "ogrn": {
+          "type": "object",
+          "required": ["value"],
+          "properties": {
+            "value": {"type": "string", "pattern": "^[0-9]{13,15}$"},
+            "legal_entity": {"type": "string"},
+            "verified_at": {"type": "string", "format": "date"}
+          }
+        },
+        "github": {"type": "string"}
+      }
+    },
+    "tools": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1,
+      "maxItems": 50
+    },
+    "tools_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "tools_lang": {
+      "type": "array",
+      "items": {"type": "string", "enum": ["ru", "en"]},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "hosting": {
+      "type": "object",
+      "required": ["country", "fz152_pii_processing"],
+      "properties": {
+        "country": {"type": "string", "pattern": "^[A-Z]{2}$"},
+        "fz152_pii_processing": {
+          "type": "string",
+          "enum": ["declared", "not-applicable", "not-declared"]
+        },
+        "audit_retention_days": {"type": "integer", "minimum": 0}
+      }
+    },
+    "license": {
+      "type": "object",
+      "properties": {
+        "spdx": {"type": ["string", "null"]},
+        "code_url": {"type": "string", "format": "uri"}
+      }
+    },
+    "pricing": {
+      "type": "object",
+      "required": ["model"],
+      "properties": {
+        "model": {
+          "type": "string",
+          "enum": ["free", "freemium", "paid", "enterprise"]
+        },
+        "ru_payment_methods": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["sbp", "card", "invoice", "crypto"]
+          }
+        }
+      }
+    },
+    "attribution": {
+      "type": "object",
+      "properties": {
+        "utm_pattern": {"type": "string"},
+        "documentation_url": {"type": "string", "format": "uri"},
+        "check_tool": {"type": "string"},
+        "check_args": {"type": "object"}
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "dormant", "deprecated", "removed"]
+    },
+    "tier": {"type": "integer", "enum": [1, 2]},
+    "added": {"type": "string", "format": "date"},
+    "last_verified": {"type": "string", "format": "date"},
+    "linkrot_failures": {"type": "integer", "minimum": 0},
+    "example_use": {
+      "type": "object",
+      "properties": {
+        "ru": {"type": "string"},
+        "en": {"type": "string"}
+      }
+    },
+    "related": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "additionalProperties": false
+}

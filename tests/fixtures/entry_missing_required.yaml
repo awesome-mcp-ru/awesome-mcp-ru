@@ -1,0 +1,68 @@
+id: biziq-mcp
+name:
+  ru: BizIQ MCP
+  en: BizIQ MCP
+description:
+  ru: Российская бизнес-разведка по ОГРН/ИНН/ИП/брендам — 23 tools, 36.77M ЮЛ+ИП.
+  en: Russian business intelligence by OGRN/INN/IE/brand — 23 tools, 36.77M legal
+    entities.
+category: business-intel
+endpoint:
+  transport: streamable-http
+  auth: open
+maintainer:
+  name: NeuralGate / BizIQ
+  url: https://biziq.ru/mcp
+  contact: ops@biziq.ru
+verification:
+  dns_txt: true
+  ogrn:
+    value: '1027700132195'
+  github: neuralgate/biziq
+tools:
+- biz.find_company
+- biz.find_ie
+- biz.find_person
+- biz.recent_mna
+- biz.company_history
+- biz.search
+- biz.address_companies
+- biz.companies_by_okved
+- biz.licenses_for
+- biz.brand_companies
+- biz.brand_get
+- biz.brand_holders
+- biz.ie_brands
+- biz.finances
+- biz.enforcements
+- biz.contracts
+- biz.inspections
+- biz.legal_cases
+- biz.narrative
+- biz.patent_recent
+tools_count: 23
+tools_lang:
+- ru
+- en
+hosting:
+  country: RU
+  fz152_pii_processing: declared
+  audit_retention_days: 90
+license:
+  spdx: AGPL-3.0
+  code_url: https://github.com/neuralgate/biziq
+pricing:
+  model: freemium
+  ru_payment_methods:
+  - sbp
+  - card
+  - invoice
+attribution:
+  utm_pattern: utm_source=biziq-mcp&utm_medium=ai-agent&utm_campaign={tool}&utm_term={client}
+  documentation_url: https://biziq.ru/mcp/attribution
+  check_tool: biz.find_company
+  check_args:
+    ogrn: '1027700132195'
+example_use:
+  ru: «Найди карточку Сбера по ОГРН 1027700132195»
+  en: Find Sberbank card by OGRN 1027700132195
