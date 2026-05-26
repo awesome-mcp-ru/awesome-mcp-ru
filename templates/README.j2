@@ -1,0 +1,29 @@
+# awesome-mcp-ru — каталог MCP-серверов рунета
+
+Первый community-каталог MCP-серверов в российском интернете. Все записи проходят
+автоматическую верификацию (DNS TXT + ОГРН через biziq-MCP). Соответствие
+[STANDARD.md](STANDARD.md) даёт badge Tier-1.
+
+- **{{ entries|length }} записей** · **{{ t1_count }} Tier-1** · **{{ t2_count }} Tier-2 (community)**
+- **STANDARD**: [STANDARD.md](STANDARD.md) (v{{ standard_version }})
+- **Submit**: см. [CONTRIBUTING.md](CONTRIBUTING.md)
+- **Live**: https://mcp.neuralgate.ru
+
+## Категории
+{% for cat_id, cat in categories.items() if cat.entries %}
+### {{ cat.emoji }} {{ cat.ru }} ({{ cat.en }})
+
+{% for entry in cat.entries %}
+- **[{{ entry.name.ru }}]({{ entry_url(entry) }})** — {{ entry.description.ru }}
+  {{ tier_badge(entry) }} {{ orthogonal_badges(entry) }} · `{{ entry.endpoint.url }}`
+{% endfor %}
+{% endfor %}
+
+## Лицензии
+
+- Контент (entries, STANDARD, badges, landing): [CC-BY-SA-4.0](LICENSE-content)
+- Инструменты (generator, tests): [MIT](LICENSE-tooling)
+
+## Status
+
+Запуск: 2026-06-16. STANDARD.md v1.0.0 freeze: 2026-06-13.
