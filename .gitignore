@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.pytest_cache/
+.verify-cache/
+*.egg-info/
+
+# Generator output
+dist/
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
