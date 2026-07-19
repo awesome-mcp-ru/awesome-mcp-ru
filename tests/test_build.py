@@ -5,6 +5,10 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
+from generator.build import entry_noun
+
 ROOT = Path(__file__).parent.parent
 
 
@@ -34,3 +38,23 @@ def test_build_includes_endpoint(tmp_path):
     subprocess.run([sys.executable, "-m", "generator.build", "--output", str(out)], cwd=ROOT, check=True)
     readme = out.read_text(encoding="utf-8")
     assert "mcp.biziq.ru" in readme
+
+
+@pytest.mark.parametrize(
+    ("count", "expected"),
+    [
+        (0, "записей"),
+        (1, "запись"),
+        (2, "записи"),
+        (4, "записи"),
+        (5, "записей"),
+        (11, "записей"),
+        (14, "записей"),
+        (21, "запись"),
+        (22, "записи"),
+        (25, "записей"),
+        (111, "записей"),
+    ],
+)
+def test_entry_noun_uses_russian_plural_rules(count, expected):
+    assert entry_noun(count) == expected

@@ -78,6 +78,19 @@ def compute_badges(entry: dict) -> list[str]:
     return badges
 
 
+def entry_noun(count: int) -> str:
+    """Return the Russian noun form matching an entry count."""
+    last_two = count % 100
+    if 11 <= last_two <= 14:
+        return "записей"
+    last = count % 10
+    if last == 1:
+        return "запись"
+    if 2 <= last <= 4:
+        return "записи"
+    return "записей"
+
+
 def bucket_by_category(entries: list[dict]) -> dict:
     cats: dict = {k: {**v, "entries": []} for k, v in CATEGORIES.items()}
     for entry in entries:
@@ -108,6 +121,7 @@ def render_readme(entries: list[dict]) -> str:
         return " ".join(BADGE_EMOJI.get(b, "") for b in compute_badges(entry))
 
     env.globals["entry_url"] = entry_url
+    env.globals["entry_noun"] = entry_noun
     env.globals["tier_badge"] = tier_badge
     env.globals["orthogonal_badges"] = orthogonal_badges
 

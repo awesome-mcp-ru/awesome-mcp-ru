@@ -1,0 +1,62 @@
+# === IDENTITY ===
+id: xquik-mcp
+name:
+  ru: Xquik MCP
+  en: Xquik MCP
+description:
+  ru: MCP-сервер для X/Twitter данных, мониторинга, экспортов, webhooks и действий через API Xquik.
+  en: MCP server for X/Twitter data, monitoring, exports, webhooks, and Xquik API actions.
+
+category: communication
+
+# === ENDPOINTS ===
+endpoint:
+  url: https://xquik.com/mcp
+  transport: streamable-http
+  auth: oauth
+
+# === OWNERSHIP ===
+maintainer:
+  name: Xquik
+  url: https://xquik.com
+  contact: https://docs.xquik.com/mcp/overview
+
+# === IDENTITY VERIFICATION ===
+verification:
+  github: Xquik-dev/x-twitter-scraper
+
+# === TOOLS ===
+tools:
+  - explore
+  - xquik
+tools_count: 2
+tools_lang:
+  - en
+
+# === HOSTING / COMPLIANCE ===
+hosting:
+  country: US
+  fz152_pii_processing: not-applicable
+
+# === LICENSE ===
+license:
+  spdx: null
+  code_url: https://github.com/Xquik-dev/x-twitter-scraper
+
+# === MONETIZATION ===
+pricing:
+  model: paid
+
+# === ATTRIBUTION ===
+attribution:
+  documentation_url: https://docs.xquik.com/mcp/tools
+
+# === RICH METADATA ===
+status: active
+tier: 2
+added: "2026-07-09"
+last_verified: "2026-07-18"
+linkrot_failures: 0
+example_use:
+  ru: "Найди публичные X/Twitter посты по заданному ключевому слову"
+  en: "Find public X/Twitter posts for a keyword"
