@@ -4,7 +4,7 @@
 автоматическую верификацию (DNS TXT + ОГРН через biziq-MCP). Соответствие
 [STANDARD.md](STANDARD.md) даёт badge Tier-1.
 
-- **1 записей** · **0 Tier-1** · **1 Tier-2 (community)**
+- **2 записей** · **0 Tier-1** · **1 Tier-2 (community)**
 - **STANDARD**: [STANDARD.md](STANDARD.md) (v1.0.0-draft)
 - **Submit**: см. [CONTRIBUTING.md](CONTRIBUTING.md)
 - **Live**: https://mcp-ru.neuralgate.ru
@@ -16,7 +16,8 @@
 
 - **[BizIQ MCP](https://mcp-ru.neuralgate.ru/entry/biziq-mcp/)** — Российская бизнес-разведка по ОГРН/ИНН/ИП/брендам — 23 tools, 36.77M ЮЛ+ИП.
   🥈 Tier 2 🇷🇺 🔐 🤖 📜 💳 🌐 · `https://mcp.biziq.ru`
-
+- **[Statsnet MCP](https://github.com/usenetstate/statsnet-mcp)** — Background check any company in the world: registration, executives, courts and finances. Remote: `https://statsnet.co/mcp` · Registry: `io.github.usenetstate/statsnet`.
+  🥈 Tier 2 🌍 🌐 · `https://statsnet.co/mcp`
 
 
 ## Лицензии
