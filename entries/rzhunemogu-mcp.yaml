@@ -1,0 +1,61 @@
+# === IDENTITY ===
+id: rzhunemogu-mcp
+name:
+  ru: RzhuNeMogu MCP
+  en: RzhuNeMogu MCP
+description:
+  ru: Русскоязычная база юмора — 46 000+ анекдотов, смешных рассказов, афоризмов, тостов и статусов для ИИ-агентов. Поиск, случайный контент, статистика.
+  en: Russian-language humor database — 46,000+ jokes, anecdotes, aphorisms, toasts and statuses for AI agents. Search, random content, site statistics.
+
+category: other
+
+# === ENDPOINTS ===
+endpoint:
+  url: https://rzhunemogu.ru/mcp
+  transport: streamable-http
+  auth: open
+
+# === OWNERSHIP ===
+maintainer:
+  name: MihaNikUs (RzhuNeMogu)
+  url: https://rzhunemogu.ru
+  contact: support@RzhuNeMogu.ru
+
+# === IDENTITY VERIFICATION ===
+verification:
+  dns_txt: false
+  github: MihaNikUs/rzhunemogu-mcp
+
+# === TOOLS ===
+tools:
+  - list_categories
+  - random_joke
+  - get_joke_by_id
+  - get_jokes_by_category
+  - search_jokes
+  - popular_tags
+  - site_stats
+tools_count: 7
+tools_lang:
+  - ru
+
+# === HOSTING / COMPLIANCE ===
+hosting:
+  country: RU
+  fz152_pii_processing: not-processed
+  audit_retention_days: 0
+
+# === LICENSE ===
+license:
+  spdx: MIT
+  code_url: https://github.com/MihaNikUs/rzhunemogu-mcp
+
+# === MONETIZATION ===
+pricing:
+  model: free
+  ru_payment_methods: []
+
+# === RICH METADATA ===
+example_use:
+  ru: «Дай случайный анекдот» или «Найди анекдот про врача»
+  en: "Get a random joke or search for a joke about a doctor"
